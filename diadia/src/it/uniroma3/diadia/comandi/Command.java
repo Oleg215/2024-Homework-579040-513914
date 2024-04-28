@@ -6,4 +6,8 @@ public interface Command {
 	public void esegui(Partita partita);
 	public void setParametro(String parametro);
 	
+	public String getNome();
+	 
+	 public String getParametro();
+
 }

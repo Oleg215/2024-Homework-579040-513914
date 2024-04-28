@@ -29,4 +29,14 @@ public class ComandoPosa implements Command {
 	public void setParametro(String parametro) {
 		this.nomeAttrezzo=parametro;
 	}
+	@Override
+	public String getNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getParametro() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	}
