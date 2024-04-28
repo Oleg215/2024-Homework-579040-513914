@@ -13,7 +13,6 @@ public class ComandoPrendi implements Command {
 		if(StanzaCorrente.hasAttrezzo(nomeAttrezzo)) {
 			Attrezzo att=StanzaCorrente.getAttrezzo(nomeAttrezzo);
 			StanzaCorrente.removeAttrezzo(att);
-			partita.getGiocatore().getBorsa().addAttrezzo(att);
 			if(partita.getGiocatore().getBorsa().addAttrezzo(att))
 				System.out.println("oggetto aggiunto");
 			else
