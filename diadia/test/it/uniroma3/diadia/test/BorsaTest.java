@@ -1,4 +1,4 @@
-package diadia_base.tar.gz_expanded;
+package it.uniroma3.diadia.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
