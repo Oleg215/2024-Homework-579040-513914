@@ -59,6 +59,11 @@ public class TestComandoVai {
 		t.setParametro("ovest");
 		t.esegui(p);
 		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"Laboratorio Campus");
-
+	}
+	@Test
+	public void testDecrementoCfu() {
+		t.setParametro("sud");
+		t.esegui(p);
+		assertEquals(19,p.getGiocatore().getCfu());
 	}
 }

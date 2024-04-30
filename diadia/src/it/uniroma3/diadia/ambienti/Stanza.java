@@ -143,9 +143,9 @@ public class Stanza {
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		boolean trovato;
 		trovato = false;
-		for (int i=0;i<this.numeroAttrezzi;i++) {
-			if (attrezzi[i].getNome().equals(nomeAttrezzo))
-				trovato = true;
+		for (int i=0;i<this.numeroAttrezzi&&!trovato;i++) {
+			if (attrezzi[i].getNome().equals(nomeAttrezzo)) {
+				trovato = true;}
 		}
 		return trovato;
 	}
@@ -159,9 +159,10 @@ public class Stanza {
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
 		Attrezzo attrezzoCercato;
 		attrezzoCercato = null;
-		for (int i=0;i<this.numeroAttrezzi;i++) {
-			if (attrezzi[i].getNome().equals(nomeAttrezzo))
-				attrezzoCercato = attrezzi[i];
+		for (Attrezzo attrezzo:this.attrezzi) {
+			if(attrezzo!=null)
+			if (attrezzo.getNome().equals(nomeAttrezzo))
+				attrezzoCercato = attrezzo;
 		}
 		return attrezzoCercato;	
 	}
@@ -177,7 +178,7 @@ public class Stanza {
 		// TODO da implementare
 		if(this.hasAttrezzo(attrezzo.getNome())) {
 			int i=0;
-			while(!attrezzi[i].getNome().equals(attrezzo.getNome())&&i<numeroAttrezzi);
+			while(!attrezzi[i].getNome().equals(attrezzo.getNome())&&i<numeroAttrezzi)
 			 i++;
 			for(;i<numeroAttrezzi;i++)
 				attrezzi[i]=attrezzi[i+1];

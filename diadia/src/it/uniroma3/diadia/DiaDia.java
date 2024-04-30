@@ -33,9 +33,9 @@ public class DiaDia {
 	
 
 	private Partita partita;
-	private IO io;
+	private IOConsole io;
 
-	public DiaDia(IO console) {
+	public DiaDia(IOConsole console) {
 		this.partita = new Partita();
 		this.io = console;
 	}
@@ -71,7 +71,7 @@ public class DiaDia {
 
 
 	public static void main(String[] argc) {
-		IO console = new IOConsole();
+		IOConsole console = new IOConsole();
 		DiaDia gioco = new DiaDia(console);
 		gioco.gioca();
 	}

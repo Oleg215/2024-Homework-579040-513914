@@ -11,12 +11,19 @@ public class StanzaBuia extends Stanza{
 		super(nome);
 		this.oggetto=oggetto;
 	}
+	public String getOggetto() {
+		return this.oggetto;
+	}
 	@Override
 	public String getDescrizione() {
-		if(this.hasAttrezzo(this.oggetto)) {
-			return super.getDescrizione();
+		if(!(this.hasAttrezzo(this.oggetto))) {
+			return "qui c'è buio pesto";
+					
 		}
 		else
-			return "qui c'è buio pesto";
+			return super.getDescrizione();
+	}
+	public String getDes() {
+		return super.getDescrizione();
 	}
 }
