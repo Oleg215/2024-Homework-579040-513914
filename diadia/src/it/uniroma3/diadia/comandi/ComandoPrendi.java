@@ -12,9 +12,9 @@ public class ComandoPrendi implements Command {
 		Stanza StanzaCorrente=partita.getLabirinto().getStanzaCorrente();
 		if(StanzaCorrente.hasAttrezzo(nomeAttrezzo)) {
 			Attrezzo att=StanzaCorrente.getAttrezzo(nomeAttrezzo);
-			StanzaCorrente.removeAttrezzo(att);
-			if(partita.getGiocatore().getBorsa().addAttrezzo(att))
-				System.out.println("oggetto aggiunto");
+			if(partita.getGiocatore().getBorsa().addAttrezzo(att)) {
+				StanzaCorrente.removeAttrezzo(att);
+				System.out.println("oggetto aggiunto");}
 			else
 				System.out.println("impossibile prendere");}
 		else

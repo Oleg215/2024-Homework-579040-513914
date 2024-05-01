@@ -12,23 +12,23 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
  * @version base
 */
 
-public class Stanza {
+public class StanzaProtected {
 	
-	static final private int NUMERO_MASSIMO_DIREZIONI = 4;
-	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
+	static final protected int NUMERO_MASSIMO_DIREZIONI = 4;
+	static final protected int NUMERO_MASSIMO_ATTREZZI = 10;
 	
-	private String nome;
-    private Attrezzo[] attrezzi;
-    private int numeroAttrezzi;
-    private Stanza[] stanzeAdiacenti;
-    private int numeroStanzeAdiacenti;
-	private String[] direzioni;
+	protected  String nome;
+	protected Attrezzo[] attrezzi;
+	protected int numeroAttrezzi;
+	protected Stanza[] stanzeAdiacenti;
+	protected int numeroStanzeAdiacenti;
+	protected String[] direzioni;
     
     /**
      * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
      * @param nome il nome della stanza
      */
-    public Stanza(String nome) {
+    public StanzaProtected(String nome) {
         this.nome = nome;
         this.numeroStanzeAdiacenti = 0;
         this.numeroAttrezzi = 0;
@@ -110,7 +110,7 @@ public class Stanza {
         }
     }
     static public int NUMERO_MASSIMO_ATTREZZI() {
-    	return Stanza.NUMERO_MASSIMO_ATTREZZI;
+    	return StanzaProtected.NUMERO_MASSIMO_ATTREZZI;
     }
     public void setNumeroAttrezzi(int n) {
     	this.numeroAttrezzi=n;
@@ -143,9 +143,9 @@ public class Stanza {
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		boolean trovato;
 		trovato = false;
-		for (int i=0;i<this.numeroAttrezzi&&!trovato;i++) {
-			if (attrezzi[i].getNome().equals(nomeAttrezzo)) {
-				trovato = true;}
+		for (int i=0;i<this.numeroAttrezzi;i++) {
+			if (attrezzi[i].getNome().equals(nomeAttrezzo))
+				trovato = true;
 		}
 		return trovato;
 	}
@@ -159,10 +159,9 @@ public class Stanza {
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
 		Attrezzo attrezzoCercato;
 		attrezzoCercato = null;
-		for (Attrezzo attrezzo:this.attrezzi) {
-			if(attrezzo!=null)
-			if (attrezzo.getNome().equals(nomeAttrezzo))
-				attrezzoCercato = attrezzo;
+		for (int i=0;i<this.numeroAttrezzi;i++) {
+			if (attrezzi[i].getNome().equals(nomeAttrezzo))
+				attrezzoCercato = attrezzi[i];
 		}
 		return attrezzoCercato;	
 	}
@@ -178,7 +177,7 @@ public class Stanza {
 		// TODO da implementare
 		if(this.hasAttrezzo(attrezzo.getNome())) {
 			int i=0;
-			while(!attrezzi[i].getNome().equals(attrezzo.getNome())&&i<numeroAttrezzi)
+			while(!attrezzi[i].getNome().equals(attrezzo.getNome())&&i<numeroAttrezzi);
 			 i++;
 			for(;i<numeroAttrezzi;i++)
 				attrezzi[i]=attrezzi[i+1];

@@ -6,22 +6,25 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 public class ComandoPosa implements Command {
 	private String nomeAttrezzo;
 	public void esegui(Partita partita) {
+		Attrezzo a;
 		if(nomeAttrezzo==null) {
 			System.out.println("specificare oggetto che si vuole posare");
 		return;}
 		if(partita.getGiocatore().getBorsa().isEmpty()) {
 			System.out.println("nulla da posare");
 			return;}
-		else if(partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo)==null) {
+		else if(!partita.getGiocatore().getBorsa().hasAttrezzo(nomeAttrezzo)) {
 			System.out.println("non hai questo oggetto");
 			return;} 
 		else if(partita.getLabirinto().getStanzaCorrente().isFull()) {
 			System.out.println("stanza piena");
 			return;}
 		else {
-			Attrezzo a=partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-			partita.getLabirinto().getStanzaCorrente().addAttrezzo(a);
-			System.out.println("Oggetto posato");	
+			a=partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
+			if(partita.getLabirinto().getStanzaCorrente().addAttrezzo(a))
+				System.out.println("Oggetto posato");	
+			else 
+				System.out.println("Qualcosa è andato storto");
 			return;
 	
 	
