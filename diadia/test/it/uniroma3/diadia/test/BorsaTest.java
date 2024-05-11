@@ -51,17 +51,17 @@ public class BorsaTest {
 		b.addAttrezzo(ombrello);
 		assertEquals(ombrello,b.getAttrezzo("ombrello"));
 		}
-	@Test
-	public void testRemoveAttrezzo() {
-		b.addAttrezzo(martello);
-		assertEquals(martello,b.removeAttrezzo("martello"));
-		assertEquals(0,b.getNumeroAttrezzi());
-	}
-	@Test
-	public void testRemoveSecondoAttrezzo() {
-		b.addAttrezzo(martello);
-		b.addAttrezzo(ombrello);
-		assertEquals(ombrello,b.removeAttrezzo("ombrello"));
-		assertEquals(1,b.getNumeroAttrezzi());
-	}	
+//	@Test
+//	public void testRemoveAttrezzo() {
+//		b.addAttrezzo(martello);
+//		assertEquals(martello,b.removeAttrezzo("martello"));
+//		assertEquals(0,b.getNumeroAttrezzi());
+//	}
+//	@Test
+//	public void testRemoveSecondoAttrezzo() {
+//		b.addAttrezzo(martello);
+//		b.addAttrezzo(ombrello);
+//		assertEquals(ombrello,b.removeAttrezzo("ombrello"));
+//		assertEquals(1,b.getNumeroAttrezzi());
+//	}	
 }

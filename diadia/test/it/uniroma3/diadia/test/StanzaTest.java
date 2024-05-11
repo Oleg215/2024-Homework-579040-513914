@@ -7,6 +7,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,13 +21,13 @@ public class StanzaTest {
 	private Stanza s1;
 	private Attrezzo chiavi;
 	private Attrezzo bastone;
-	private Attrezzo[] arr;
+	private Map<String, Attrezzo> arr;
 	@Before 
 	public void setUp() {
 		s1= new Stanza("s1");
 		chiavi= new Attrezzo("chiavi", 12);
 		bastone=new Attrezzo("bastone", 5);
-		arr=new Attrezzo[10];
+		arr=new HashMap<>();
 	}
 	@Test
 	public void testAddAttrezzoNum() {
@@ -41,14 +44,14 @@ public class StanzaTest {
 	public void testAdd2Attrezzi() {
 		s1.addAttrezzo(chiavi);
 		s1.addAttrezzo(bastone);
-		assertEquals(bastone,s1.getAttrezzi()[1]);
+		assertEquals(bastone,s1.getMappaAttrezzi());
 	}
 	public void testAddAttrezzoArr() {
 		s1.addAttrezzo(chiavi);
 		s1.addAttrezzo(bastone);
-		arr[0]=chiavi;
-		arr[1]=bastone;
-		assertArrayEquals(arr,s1.getAttrezzi());
+		arr.get(bastone);
+		arr.get(chiavi);
+		assertEquals(arr,s1.getMappaAttrezzi());
 	}
 
 	@Test
