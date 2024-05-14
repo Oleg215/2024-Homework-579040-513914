@@ -7,9 +7,10 @@ public class Labirinto {
 	private Stanza stanzaCorrente;
 	private Stanza stanzaVincente;
 	
-	public  Labirinto() {
+	/*public  Labirinto() {
 		this.creaStanze();
-	}
+	} */ 
+	
 	/**
      * Crea tutte le stanze e le porte di collegamento
      */

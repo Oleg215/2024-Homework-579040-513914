@@ -1,8 +1,18 @@
 package it.uniroma3.diadia.giocatore;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
+import java.util.HashSet;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.attrezzi.*;
+
+
 
 public class Borsa {
 
@@ -29,17 +39,41 @@ public class Borsa {
 	}
 	
 	public boolean addAttrezzo(Attrezzo attrezzo) {
-		if (this.getPeso() + attrezzo.getPeso() > this.getPesoMax())
+		if ((this.getPeso() + attrezzo.getPeso() > this.getPesoMax())||attrezzo==null)
 			return false;
-		if (attrezzo==null)
-			return false;
-
-		this.attrezzi.add(attrezzo);
-		return true;
+		else
+		return attrezzi.add(attrezzo);
 	}
-	
-	
-
+	public List<Attrezzo> getContenutoOrdinatoPerPeso(){
+		ComparatoreAttrezzi compAtt=new ComparatoreAttrezzi();
+		this.attrezzi.sort(compAtt);
+		return attrezzi;
+	}
+	public List<Attrezzo> getContenuroOrdinatoPerNome(){
+		Collections.sort(this.attrezzi);
+		return attrezzi;
+	}
+	public Map<Integer,Set<Attrezzo>> getContenutoRaggruppatoPerPeso(){
+	 Map<Integer,Set<Attrezzo>> Map=new HashMap<>();
+	 Set<Attrezzo> tmp;
+	 for(Attrezzo attrezzo: this.attrezzi) {
+		 tmp=Map.get(attrezzo.getPeso());
+		 if(tmp==null) {
+			 tmp= new HashSet<>();
+			 Map.put(attrezzo.getPeso(), tmp);
+		 }
+		 tmp.add(attrezzo);
+	 }
+	 return Map;
+	}
+	public SortedSet<Attrezzo> getSortedSetOrdinatoPerPeso(){
+		ComparatoreAttrezzi compAtt=new ComparatoreAttrezzi();
+		SortedSet<Attrezzo> set=new TreeSet<>(compAtt);
+		for(Attrezzo attrezzo:this.attrezzi)
+			set.add(attrezzo);
+		return set;
+		
+	}
 	public int getPesoMax() {
 		return pesoMax;
 	}

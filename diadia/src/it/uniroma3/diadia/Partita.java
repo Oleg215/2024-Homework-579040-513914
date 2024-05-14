@@ -18,13 +18,14 @@ public class Partita {
 	private Giocatore giocatore;
 	private boolean finita;
 	
-	public Partita(){
-		this.labirinto= new Labirinto();
+	
+	public Partita(Labirinto labirinto) {
+		this.labirinto=labirinto;
 		this.giocatore= new Giocatore();
 		labirinto.creaStanze();
-		this.finita = false;
-	}  
-	
+		this.finita=false;
+	}
+
 	public Labirinto getLabirinto() {
 		return labirinto;
 	}
