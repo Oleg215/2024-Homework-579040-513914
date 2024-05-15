@@ -19,7 +19,7 @@ public class ComandoPrendi implements Command {
 				System.out.println("impossibile prendere");}
 		else
 			System.out.println("oggetto non è nella stanza");
-		
+			
 		
 	}
 	
