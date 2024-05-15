@@ -1,14 +1,16 @@
 package it.uniroma3.diadia.test;
 
-import it.uniroma3.diadia.*;
-import static org.junit.Assert.*;
-
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.Labirinto;
+
 public class PartitaTest {
-	Partita p=new Partita();
+	private Labirinto labirinto;
+	Partita p=new Partita(labirinto);
 	
 	
 	

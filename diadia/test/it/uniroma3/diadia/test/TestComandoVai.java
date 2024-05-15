@@ -1,20 +1,23 @@
 package it.uniroma3.diadia.test;
-import it.uniroma3.diadia.*;
-import it.uniroma3.diadia.comandi.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.comandi.ComandoVai;
 
 
 
 public class TestComandoVai {			
 	
 	private Partita p;
-	private ComandoVai t;	
+	private ComandoVai t;
+	private Labirinto labirinto;
 	@Before
 	public void setup() {
-		p=new Partita();
+		p=new Partita(labirinto);
 		t= new ComandoVai();
 	}
 	

@@ -13,9 +13,10 @@ public class TestComandoPosa {
 	private Attrezzo a;
 	private Stanza s;
 	private	Attrezzo[] ar;
+	private Labirinto l;
 	@Before
 	public void setUp() {
-		p=new Partita();
+		p=new Partita(l);
 		c=new ComandoPosa();
 		a=new Attrezzo("lanterna",2);
 		p.getGiocatore().getBorsa().addAttrezzo(a);
