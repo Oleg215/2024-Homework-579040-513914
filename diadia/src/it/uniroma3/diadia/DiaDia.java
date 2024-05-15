@@ -33,7 +33,7 @@ public class DiaDia {
 
 	private Partita partita;
 	private IO io;
-
+//comment 
 	public DiaDia(IO console,Labirinto labirinto) {
 		this.partita = new Partita(labirinto);
 		this.io = console;
