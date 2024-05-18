@@ -39,7 +39,12 @@ public class Stanza {
         this.mappaStanzeAdiacenti = new HashMap<>();
         this.mappaAttrezzi = new HashMap<>();
     }
-
+    public Map<String,Attrezzo> getAttrezzi(){
+    	return this.mappaAttrezzi;
+    }
+    public Map<String,Stanza> getMapStanzeAdiacenti(){
+    	return this.mappaStanzeAdiacenti;
+    }
     /**
      * Imposta una stanza adiacente.
      *

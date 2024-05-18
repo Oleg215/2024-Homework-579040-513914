@@ -13,10 +13,14 @@ public class LabirintoBuilder {
 		this.labirinto=new Labirinto();
 		this.Stanze=new HashMap<>();
 	}
+	public Map<String,Stanza> getListaStanze(){
+		return this.Stanze;
+	}
 	public LabirintoBuilder addStanzaIniziale(String nomeStanza) {
 		Stanza stanza=new Stanza(nomeStanza);
 		this.stanza=stanza;
 		Stanze.put(nomeStanza, stanza);
+		labirinto.setStanzaIniziale(stanza);
 		labirinto.setStanzaCorrente(stanza);
 		return this;
 	}
