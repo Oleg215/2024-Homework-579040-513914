@@ -1,11 +1,14 @@
 package it.uniroma3.diadia.test;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.comandi.ComandoPrendi;
@@ -16,10 +19,11 @@ public class TestComandoPrendi {
 	private Stanza s;
 	private ComandoPrendi c;
 	private Attrezzo a2;
+	private Labirinto labirinto;
 	
 	@Before
 	public void setUp() {
-		p=new Partita();
+		p=new Partita(labirinto);
 		s=p.getLabirinto().getStanzaCorrente();
 		a1=s.getAttrezzo("osso");
 		c=new ComandoPrendi();
