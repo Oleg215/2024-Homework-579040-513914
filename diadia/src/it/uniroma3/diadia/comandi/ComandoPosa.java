@@ -6,8 +6,8 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 public class ComandoPosa implements Command {
 	private String nomeAttrezzo;
 	public void esegui(Partita partita) {
-		Attrezzo a;
-		if(nomeAttrezzo==null) {
+		Attrezzo a; 
+		if(nomeAttrezzo==null) { 
 			System.out.println("specificare oggetto che si vuole posare");
 		return;}
 		if(partita.getGiocatore().getBorsa().isEmpty()) {

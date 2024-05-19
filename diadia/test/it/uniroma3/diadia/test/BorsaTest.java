@@ -1,14 +1,12 @@
 package it.uniroma3.diadia.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals; 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +28,7 @@ public class BorsaTest {
 		b2 = new Borsa();
 		chiavi = new Attrezzo("chiavi", 12);
 		martello = new Attrezzo("martello", 3);
-		ombrello= new Attrezzo("ombrello", 3);
+		ombrello= new Attrezzo("ombrello", 4);
 	}
 	
 	@Test
@@ -76,33 +74,25 @@ public class BorsaTest {
 	
 	@Test
 	public void testGetContenutoOrdinatoPerNome() {
-		b.addAttrezzo(chiavi);
+		b.addAttrezzo(ombrello);
 		b.addAttrezzo(martello);
-		List<Attrezzo> lista = new ArrayList<>();
-		lista.add(martello);
-		lista.add(chiavi);
-		assertEquals(lista, this.b.getContenuroOrdinatoPerNome());
+		SortedSet<Attrezzo> set = new TreeSet<>();
+		set.add(martello);
+		set.add(ombrello);
+		assertEquals(set, this.b.getContenuroOrdinatoPerNome());
 	}
 	
-	@Test
-	public void testGetContenutoOrdinatoPerPeso() {
-		b.addAttrezzo(chiavi);
-		b.addAttrezzo(martello);
-		List<Attrezzo> lista = new ArrayList<>();
-		lista.add(martello);
-		lista.add(chiavi);
-		assertEquals(lista, this.b.getContenutoOrdinatoPerPeso());
-	}
+	
 	
 	@Test
 	public void testGetSortedSetOrdinatoPerPeso() {
-		b.addAttrezzo(chiavi);
+		b.addAttrezzo(ombrello);
 		b.addAttrezzo(martello);
 		
-		Set<Attrezzo> set=new HashSet<>();
-		set.add(chiavi);
-		set.add(martello);
-		assertEquals(set, this.testGetSortedSetOrdinatoPerPeso());
+		List<Attrezzo> list=new ArrayList<>();
+		list.add(martello);
+		list.add(ombrello);
+		assertEquals(list, b.getContenutoOrdinatoPerPeso());
 	}
 	
 }

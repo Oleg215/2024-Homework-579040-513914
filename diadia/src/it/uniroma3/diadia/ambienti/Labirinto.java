@@ -1,5 +1,5 @@
 package it.uniroma3.diadia.ambienti;
-
+import java.util.*;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class Labirinto {
@@ -7,6 +7,7 @@ public class Labirinto {
 	private Stanza stanzaCorrente;
 	private Stanza stanzaVincente;
 	private Stanza stanzaIniziale;
+	private Set<String> attrezzi;
 	/*public  Labirinto() {
 		this.creaStanze();
 	} */ 
@@ -62,11 +63,17 @@ public class Labirinto {
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
 		this.stanzaCorrente = stanzaCorrente;
 	}
-
+	public void setStanzaVincente(Stanza stanzaVincente) {
+		this.stanzaVincente=stanzaVincente;
+	}
 	public Stanza getStanzaCorrente() {
 		return this.stanzaCorrente;
 	}
-	
+	public boolean addAttrezzo(String attrezzo) {
+		if(attrezzi==null)
+		attrezzi=new HashSet<>();
+		return attrezzi.add(attrezzo);
+	}
 	
 	
 }

@@ -28,7 +28,7 @@ public class LabirintoBuilder {
 		Stanza stanza=new Stanza(nomeStanza);
 		this.stanza=stanza;
 		Stanze.put(nomeStanza, stanza);
-		labirinto.setStanzaCorrente(stanza);
+		labirinto.setStanzaVincente(stanza);
 		return this;
 	}
 	public LabirintoBuilder addStanzaBloccata(String nomeStanza,String direzioneBlocco,String attrezzo) {
@@ -58,6 +58,7 @@ public class LabirintoBuilder {
 
 	public LabirintoBuilder addAttrezzo(String nomeAttrezzo, int pesoAttrezzo) {
 		Attrezzo attrezzo= new Attrezzo(nomeAttrezzo,pesoAttrezzo);
+		if(labirinto.addAttrezzo(nomeAttrezzo))
 		stanza.addAttrezzo(attrezzo);
 		return this;
 	}

@@ -2,7 +2,7 @@ package it.uniroma3.diadia.test;
 import  it.uniroma3.diadia.ambienti.*;
 
 import static org.junit.Assert.*;
-
+import java.util.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -54,7 +54,9 @@ public class LabirintoBuilderTest {
 				.addAttrezzo("spada",1)
 				.getLabirinto();
 		int size = monolocale.getStanzaIniziale().getAttrezzi().size();
-		assertTrue(size==1);
+		List<Attrezzo> lista=new ArrayList<>();
+		lista.add(new Attrezzo("spada",1));
+		assertTrue(size==1); 
 		assertEquals(Arrays.asList(new Attrezzo("spada",1)),monolocale.getStanzaIniziale().getAttrezzi());
 	}
 	

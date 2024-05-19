@@ -21,7 +21,9 @@ public class StanzaMagica extends Stanza {
 			attrezzo=this.modificaAttrezzo(attrezzo);
 		return super.addAttrezzo(attrezzo);
 	}
-	
+	@Override
+	public boolean isMagica() {
+	return true;}
 	
 	
 	/*public boolean addAttrezzo(Attrezzo attrezzo) {
