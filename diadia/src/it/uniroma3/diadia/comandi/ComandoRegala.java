@@ -2,14 +2,19 @@ package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Partita;
 
-public class ComandoFine extends AbstractComando {
+public class ComandoRegala extends AbstractComando {
+
+	@Override
 	public void esegui(Partita partita) {
-		System.out.println("grazie per aver giocato");
-		partita.setFinita();
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void setParametro(String parametro) {}
+	public void setParametro(String parametro) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	@Override
 	public String getNome() {
@@ -22,6 +27,5 @@ public class ComandoFine extends AbstractComando {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 }
