@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.personaggi.AbstractPersonaggio;
 
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
@@ -26,7 +27,7 @@ public class Stanza {
     private int numeroAttrezzi;
     private Map<String, Stanza> mappaStanzeAdiacenti;
     private int numeroStanzeAdiacenti;
-  
+    private AbstractPersonaggio personaggio;
     /**
      * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
      * @param nome il nome della stanza
@@ -37,6 +38,12 @@ public class Stanza {
         this.numeroAttrezzi = 0;
         this.mappaStanzeAdiacenti = new HashMap<>();
         this.attrezzi = new ArrayList<Attrezzo>();
+    }
+    public void setPersonaggio(AbstractPersonaggio personaggio) {
+    	this.personaggio=personaggio;
+    }
+    public AbstractPersonaggio getPersonaggio() {
+    	return this.personaggio;
     }
     public List<Attrezzo> getAttrezzi(){
     	return this.attrezzi;
@@ -187,6 +194,7 @@ public class Stanza {
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
 		if(attrezzo!=null) {
+			this.numeroAttrezzi--;
 			return this.attrezzi.remove(attrezzo);
 			}
 		
