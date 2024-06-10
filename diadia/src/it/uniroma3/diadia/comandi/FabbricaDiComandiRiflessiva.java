@@ -22,7 +22,7 @@ public class FabbricaDiComandiRiflessiva implements FabbricaComandi {
 		// es. nomeClasse: ‘it.uniroma3.diadia.comandi.ComandoVai’
 		comando = (Command)Class.forName(nomeClasse.toString()).newInstance();
 		comando.setParametro(parametro);
-		return comando;
+		return comando;     
 	}  
 }
 */
