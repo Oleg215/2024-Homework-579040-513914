@@ -25,7 +25,7 @@ public class Stanza {
 	private String nome;
     private List<Attrezzo> attrezzi;
     private int numeroAttrezzi;
-    private Map<String, Stanza> mappaStanzeAdiacenti;
+    private Map<Direzione, Stanza> mappaStanzeAdiacenti;
     private int numeroStanzeAdiacenti;
     private AbstractPersonaggio personaggio;
     /**
@@ -48,7 +48,7 @@ public class Stanza {
     public List<Attrezzo> getAttrezzi(){
     	return this.attrezzi;
     }
-    public Map<String,Stanza> getMapStanzeAdiacenti(){
+    public Map<Direzione,Stanza> getMapStanzeAdiacenti(){
     	return this.mappaStanzeAdiacenti;
     }
     /**
@@ -57,7 +57,7 @@ public class Stanza {
      * @param direzione direzione in cui sara' posta la stanza adiacente.
      * @param stanza stanza adiacente nella direzione indicata dal primo parametro.
      */
-    public void impostaStanzaAdiacente(String direzione, Stanza stanza) {
+    public void impostaStanzaAdiacente(Direzione direzione, Stanza stanza) {
         boolean aggiornato = false;
     	if(mappaStanzeAdiacenti.containsKey(direzione)) {
     		this.mappaStanzeAdiacenti.put(direzione, stanza);
@@ -74,7 +74,7 @@ public class Stanza {
      * Restituisce la stanza adiacente nella direzione specificata
      * @param direzione
      */
-	public Stanza getStanzaAdiacente(String direzione) {
+	public Stanza getStanzaAdiacente(Direzione direzione) {
         Stanza stanza = null;
 		if(mappaStanzeAdiacenti.containsKey(direzione))
 			stanza=this.mappaStanzeAdiacenti.get(direzione);
@@ -135,12 +135,12 @@ public class Stanza {
 	* @return la rappresentazione stringa
 	*/
     public String toString() {
-    	Set<String> direzioni=this.getDirezioni();
+    	Set<Direzione> direzioni=this.getDirezioni();
     	StringBuilder risultato = new StringBuilder();
     	risultato.append(this.nome);
     	risultato.append("\nUscite: ");
     	
-    	for (String direzione : direzioni)
+    	for (Direzione direzione : direzioni)
     			risultato.append(" " + direzione);
     	risultato.append("\nAttrezzi nella stanza: ");
     	for(Attrezzo attrezzo:this.attrezzi)
@@ -206,8 +206,8 @@ public class Stanza {
 		return this.numeroAttrezzi==NUMERO_MASSIMO_ATTREZZI;
 	}
 	
-	public Set<String> getDirezioni() {
-		Set<String>direzioni=this.mappaStanzeAdiacenti.keySet();
+	public Set<Direzione> getDirezioni() {
+		Set<Direzione>direzioni=this.mappaStanzeAdiacenti.keySet();
 		return direzioni;
 		/*String[] direzioni = new String[this.numeroStanzeAdiacenti];
 	    for(int i=0; i<this.numeroStanzeAdiacenti; i++)

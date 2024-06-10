@@ -143,7 +143,7 @@ public class CaricatoreLabirinto {
 					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("stanza bloccata"));
 					String nomeStanza = scannerDiLinea.next();
 					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la  direzione della stanza"));
-					String direzione = scannerDiLinea.next();
+					Direzione direzione = Direzione.valueOf(scannerDiLinea.next());
 					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("attrezzo per sbloccare"));
 					String attrezzoSbloccante = scannerDiLinea.next();
 
@@ -287,7 +287,7 @@ public class CaricatoreLabirinto {
 				check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("le uscite di una stanza."));
 				String stanzaPartenza = scannerDiLinea.next();
 				check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la direzione di una uscita della stanza "+stanzaPartenza));
-				String dir = scannerDiLinea.next();
+				Direzione dir = Direzione.valueOf(scannerDiLinea.next());
 				check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la destinazione di una uscita della stanza "+stanzaPartenza+" nella direzione "+dir));
 				String stanzaDestinazione = scannerDiLinea.next();
 				
@@ -300,7 +300,7 @@ public class CaricatoreLabirinto {
 		return "Terminazione precoce del file prima di leggere "+msg;
 	}
 
-	private void impostaUscita(String stanzaDa, String dir, String nomeA) throws FormatoFileNonValidoException {
+	private void impostaUscita(String stanzaDa, Direzione dir, String nomeA) throws FormatoFileNonValidoException {
 		check(isStanzaValida(stanzaDa),"Stanza di partenza sconosciuta "+dir);
 		check(isStanzaValida(nomeA),"Stanza di destinazione sconosciuta "+ dir);
 		Stanza partenzaDa = this.nome2stanza.get(stanzaDa);

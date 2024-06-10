@@ -2,10 +2,10 @@ package it.uniroma3.diadia.ambienti;
 
 public class StanzaBloccata extends Stanza{
 
-	private String direzioneBloccata;
+	private Direzione direzioneBloccata;
 	private String nomeAttrezzoSbloccante;	
 
-	public StanzaBloccata(String nome, String direzioneBloccata, String nomeAttrezzoSbloccante) {
+	public StanzaBloccata(String nome, Direzione direzioneBloccata, String nomeAttrezzoSbloccante) {
 		super(nome);
 		this.direzioneBloccata = direzioneBloccata;
 		this.nomeAttrezzoSbloccante = nomeAttrezzoSbloccante;
@@ -19,7 +19,7 @@ stanza corrente
 stanza corrispondente all'uscita specificata)
 */
 	@Override
-	public Stanza getStanzaAdiacente(String direzione) {
+	public Stanza getStanzaAdiacente(Direzione direzione) {
 		if(!(this.hasAttrezzo(nomeAttrezzoSbloccante)))
 			return this;
 		return this.getStanzaAdiacente(direzione);
