@@ -15,7 +15,7 @@ public class Attrezzo implements Comparable<Attrezzo>{
 
 	private String nome;
 	private int peso;
-
+	private boolean regalato;
 	/**
 	 * Crea un attrezzo
 	 * @param nome il nome che identifica l'attrezzo
@@ -24,6 +24,7 @@ public class Attrezzo implements Comparable<Attrezzo>{
 	public Attrezzo(String nome, int peso) {
 		this.peso = peso;
 		this.nome = nome;
+		this.regalato=false;
 	}
 
 	/**
@@ -41,7 +42,16 @@ public class Attrezzo implements Comparable<Attrezzo>{
 	public int getPeso() {
 		return this.peso;
 	}
-
+	
+	public void setPeso(int peso) {
+		this.peso=peso;
+	}
+	public void setRegalato(boolean bool) {
+		this.regalato=bool;
+	}
+	public boolean isRegalato() {
+		return this.regalato;
+	}
 	/**
 	 * Restituisce una rappresentazione stringa di questo attrezzo
 	 * @return la rappresentazione stringa
@@ -53,5 +63,13 @@ public class Attrezzo implements Comparable<Attrezzo>{
 	public int compareTo(Attrezzo that) {
 		return this.nome.compareTo(that.getNome());
 	}
-
+	@Override
+	public boolean equals(Object o) {
+		Attrezzo that=(Attrezzo)o;
+		return this.nome.equals(that.getNome())&&this.peso==that.getPeso();
+	}
+	@Override
+	public int hashCode() {
+		return this.nome.hashCode()+this.peso;
+	}
 }
