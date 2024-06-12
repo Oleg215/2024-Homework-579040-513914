@@ -7,11 +7,13 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import it.uniroma3.diadia.FormatoFileNonValidoException;
 import it.uniroma3.diadia.ambienti.*;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.giocatore.*;
@@ -56,7 +58,7 @@ public class StanzaTest {
 
 	@Test
 	public void testGetStanzaAdiacente() {
-		assertNull(s1.getStanzaAdiacente("nord"));
+		assertNull(s1.getStanzaAdiacente(Direzione.nord));
 	}
 	 
 	@Test
@@ -83,8 +85,8 @@ public class StanzaTest {
 	
 }
 	@Test
-	public void test() {
-		Labirinto l=new LabirintoBuilder().addStanzaIniziale("stanza").
+	public void test() throws FileNotFoundException, FormatoFileNonValidoException {
+		Labirinto l=Labirinto.newBuilder("labirinto2.txt").addStanzaIniziale("stanza").
 				addAttrezzo("lanterna", 2).
 				getLabirinto();
 		Attrezzo att=l.getStanzaCorrente().getAttrezzo("lanterna");

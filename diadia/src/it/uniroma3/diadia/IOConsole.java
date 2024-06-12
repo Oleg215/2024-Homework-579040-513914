@@ -8,10 +8,18 @@ public class IOConsole implements IO{
 		System.out.println(msg);
 	}
 	
+//	forma sintattica try-with-resource
 	public String leggiRiga() {
-		Scanner scannerDiLinee = new Scanner(System.in);
-		String riga = scannerDiLinee.nextLine();
-		//		 scannerDiLinee.close();
-		return riga;
+		try (Scanner scannerDiLinee = new Scanner(System.in)) {
+		    String riga = scannerDiLinee.nextLine();
+//			 scannerDiLinee.close();
+		    return riga;
+		}
+
+//		Scanner scannerDiLinee = new Scanner(System.in);
+//		String riga = scannerDiLinee.nextLine();
+//		//		 scannerDiLinee.close();
+//		return riga;
 	}
 }
+

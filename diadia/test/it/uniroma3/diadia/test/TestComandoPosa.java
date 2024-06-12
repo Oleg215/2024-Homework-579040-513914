@@ -3,6 +3,8 @@ import it.uniroma3.diadia.*;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.ambienti.*;
 import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
 import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,9 +17,8 @@ public class TestComandoPosa {
 	private	List<Attrezzo> list;
 	private Labirinto l;
 	@Before
-	public void setUp() {
-		l=new LabirintoBuilder().addStanzaIniziale("stanza").
-				getLabirinto();
+	public void setUp() throws FileNotFoundException, FormatoFileNonValidoException {
+		l=Labirinto.newBuilder("labirinto2.txt").getLabirinto();
 		p=new Partita(l);
 		c=new ComandoPosa();
 		s=l.getStanzaCorrente();
