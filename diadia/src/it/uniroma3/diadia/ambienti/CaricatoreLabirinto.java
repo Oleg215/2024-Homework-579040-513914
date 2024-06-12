@@ -106,6 +106,7 @@ public class CaricatoreLabirinto {
 			Stanza stanza = new Stanza(nomeStanza);
 			this.nome2stanza.put(nomeStanza, stanza);
 		}
+		
 	}
 	private void leggiECreaStanzeMagiche() throws FormatoFileNonValidoException  {
 		String nomiStanze = this.leggiRigaCheCominciaPer(STANZE_MAGICHE_MARKER);
@@ -301,8 +302,8 @@ public class CaricatoreLabirinto {
 	}
 
 	private void impostaUscita(String stanzaDa, Direzione dir, String nomeA) throws FormatoFileNonValidoException {
-		check(isStanzaValida(stanzaDa),"Stanza di partenza sconosciuta "+dir);
-		check(isStanzaValida(nomeA),"Stanza di destinazione sconosciuta "+ dir);
+		check(isStanzaValida(stanzaDa),"Stanza di partenza sconosciuta "+stanzaDa);
+		check(isStanzaValida(nomeA),"Stanza di destinazione sconosciuta "+ "da "+stanzaDa+" in direzione "  +dir +" ("+nomeA+")");
 		Stanza partenzaDa = this.nome2stanza.get(stanzaDa);
 		Stanza arrivoA = this.nome2stanza.get(nomeA);
 		partenzaDa.impostaStanzaAdiacente(dir, arrivoA);

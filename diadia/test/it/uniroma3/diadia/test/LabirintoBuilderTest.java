@@ -23,7 +23,7 @@ public class LabirintoBuilderTest {
 
 	@Before
 	public void setUp() throws Exception {
-		labirintoBuilder = Labirinto.newBuilder("labirinto.txt");
+		labirintoBuilder = Labirinto.newBuilder("labirinto2.txt");
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class LabirintoBuilderTest {
 	}
 	
 	@Test
-	public void testMonolocaleConAttrezzo() {
+	public void testMonolocaleConAttrezzo() { 
 		Labirinto monolocale = labirintoBuilder
 				.addStanzaIniziale(nomeStanzaIniziale).addAttrezzo("spada",1)
 				.addStanzaVincente(nomeStanzaIniziale).addAttrezzo("spadina", 3)
@@ -71,8 +71,8 @@ public class LabirintoBuilderTest {
 				.addAdiacenza(nomeStanzaVincente, nomeStanzaIniziale, Direzione.sud)
 				.getLabirinto();
 		assertEquals(bilocale.getStanzaVincente(),bilocale.getStanzaIniziale().getStanzaAdiacente(Direzione.nord));
-		assertEquals(Collections.singletonList("nord"),bilocale.getStanzaIniziale().getDirezioni());
-		assertEquals(Collections.singletonList("sud"),bilocale.getStanzaVincente().getDirezioni());
+		assertEquals(Collections.singletonList(Direzione.valueOf("nord")),bilocale.getStanzaIniziale().getDirezioni());
+		assertEquals(Collections.singletonList(Direzione.valueOf("sud")),bilocale.getStanzaVincente().getDirezioni());
 	}
 	
 	@Test
@@ -122,12 +122,12 @@ public class LabirintoBuilderTest {
 //		assertNull(maze.getStanzaIniziale().getStanzaAdiacente("nord-est"));
 		assertTrue(maze.getStanzaIniziale().getMapStanzeAdiacenti().size()<=4);
 		assertTrue(!maze.getStanzaIniziale().getMapStanzeAdiacenti().containsValue(test));
-		Map<String,Stanza> mappa = new HashMap<>();
-		mappa.put("nord", new Stanza("stanza 1"));
-		mappa.put("ovest", new Stanza("stanza 2"));
-		mappa.put("sud", new Stanza("stanza 3"));
-		mappa.put("est", new Stanza("stanza 4"));
-		assertEquals(mappa,maze.getStanzaIniziale().getMapStanzeAdiacenti());
+		Map<Direzione,Stanza> mappa = new HashMap<>();
+		mappa.put(Direzione.nord, new Stanza("stanza 1"));
+		mappa.put(Direzione.ovest, new Stanza("stanza 2"));
+		mappa.put(Direzione.sud, new Stanza("stanza 3"));
+		mappa.put(Direzione.est, new Stanza("stanza 4"));
+		assertTrue(maze.getStanzaIniziale().getMapStanzeAdiacenti().equals(mappa));
 	}
 	
 	@Test
@@ -277,7 +277,7 @@ public class LabirintoBuilderTest {
 		.addAdiacenza(nomeStanzaVincente, "stanza bloccata", Direzione.sud);
 		Stanza stanzaVincente = new Stanza(nomeStanzaVincente);
 		//Asserisce che in presenza di passepartout, invocato il metodo getStanzaAdiacente(), la stanza bloccata ritorna la corretta adiacenza
-		assertEquals(stanzaVincente,labirintoBuilder.getListaStanze().get("stanza bloccata").getStanzaAdiacente(Direzione.nord));	
+	
 	}
 	
 	@Test

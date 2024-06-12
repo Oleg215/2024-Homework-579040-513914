@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import it.uniroma3.diadia.ambienti.Direzione;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.ambienti.StanzaBloccata;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
@@ -17,20 +18,20 @@ public class StanzaBloccataTest {
 	
 	@Before
 	public void setUp() {
-		this.stanzaBloccata = new StanzaBloccata("stanzaBloccata", "nord", "martello");
+		this.stanzaBloccata = new StanzaBloccata("stanzaBloccata", Direzione.valueOf("nord"), "martello");
 		this.stanza = new Stanza("cucina");
 		this.attrezzo = new Attrezzo("martello", 2);
-		stanzaBloccata.impostaStanzaAdiacente("nord", stanza);
+		stanzaBloccata.impostaStanzaAdiacente(Direzione.valueOf("nord"), stanza);
 	}
 	
 	@Test
 	public void getStanzaAdiacenteBloccataTest() {
-		assertEquals(stanzaBloccata, this.stanzaBloccata.getStanzaAdiacente("nord"));
+		assertEquals(stanzaBloccata, this.stanzaBloccata.getStanzaAdiacente(Direzione.valueOf("nord")));
 	}
 	
 	@Test
 	public void getStanzaAdiacenteSbloccataTest() {
-		assertEquals(stanzaBloccata, this.stanzaBloccata.getStanzaAdiacente("ovest"));
+		assertEquals(stanzaBloccata, this.stanzaBloccata.getStanzaAdiacente(Direzione.valueOf("ovest")));
 	}
 	
 	@Test

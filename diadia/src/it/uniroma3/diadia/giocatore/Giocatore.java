@@ -1,10 +1,10 @@
 package it.uniroma3.diadia.giocatore;
 
-import it.uniroma3.diadia.FileProperties;
+import it.uniroma3.diadia.Config;
 
 public class Giocatore {
 	
-	static final private int CFU_INIZIALI = FileProperties.getCFU();
+	static final private int CFU_INIZIALI = Config.getCFU();
 
 	private int cfu;
 	private Borsa borsa;

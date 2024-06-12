@@ -18,27 +18,27 @@ public class CaricatoreLabirintoTest {
 
 	private final String monolocale = 
 			"Stanze:biblioteca\n"+
-			//"Magica:\n"+
-			//"Buia:\n"+
-			//"Bloccata:\n"+
+			"Magica:\n"+
+			"Buia:\n"+
+			"Bloccata:\n"+
 			"Inizio:biblioteca\n"+
 			"Vincente:biblioteca\n"+
-			//"Mago:\n"+
-			//"Cane:\n"+
-			//"Strega:\n"+
+			"Mago:\n"+
+			"Cane:\n"+
+			"Strega:\n"+
 			"Attrezzi:\n"+
 			"Uscite:\n";
 
 	private final String bilocale = 
 			"Stanze:N12,N11\n"+
-			//"Magica:\n"+
-			//"Buia:\n"+
-			//"Bloccata:\n"+
+			"Magica:\n"+
+			"Buia:\n"+
+			"Bloccata:\n"+
 			"Inizio:N12\n"+
 			"Vincente:N11\n"+
-			//"Mago:\n"+
-			//"Cane:\n"+
-			//"Strega:\n"+
+			"Mago:\n"+
+			"Cane:\n"+
+			"Strega:\n"+
 			"Attrezzi:martello 3 N12\n"+
 			"Uscite:\n";
 	

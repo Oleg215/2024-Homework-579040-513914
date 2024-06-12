@@ -1,0 +1,12 @@
+Stanze:Atrio,Biblioteca,AulaN10,AulaN11,LaboratorioCampus
+Magica:
+Buia:
+Bloccata:  
+Inizio:Atrio
+Vincente:Biblioteca
+Mago:
+Cane:
+Strega:
+Attrezzi:osso 1 Atrio,lanterna 3 AulaN10
+Uscite:Atrio nord Biblioteca, Atrio est AulaN11, Atrio sud AulaN10, Atrio ovest LaboratorioCampus
+

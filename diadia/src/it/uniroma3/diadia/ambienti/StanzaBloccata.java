@@ -22,7 +22,7 @@ stanza corrispondente all'uscita specificata)
 	public Stanza getStanzaAdiacente(Direzione direzione) {
 		if(!(this.hasAttrezzo(nomeAttrezzoSbloccante)))
 			return this;
-		return this.getStanzaAdiacente(direzione);
+		return super.getStanzaAdiacente(direzione);
 	
 	}
 	

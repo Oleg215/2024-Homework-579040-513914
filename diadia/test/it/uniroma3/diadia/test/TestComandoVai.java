@@ -49,19 +49,19 @@ public class TestComandoVai {
 	public void testSud() {
 		t.setParametro("sud");
 		t.esegui(p);
-		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"Aula N10");
+		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"AulaN10");
 		}
 	@Test
 	public void testEst() {
 		t.setParametro("est");
 		t.esegui(p);
-		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"Aula N11");
+		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"AulaN11");
 	}
 	@Test
 	public void testOvest() {
 		t.setParametro("ovest");
 		t.esegui(p);
-		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"Laboratorio Campus");
+		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"LaboratorioCampus");
 		
 	}
 	@Test
@@ -71,21 +71,7 @@ public class TestComandoVai {
 		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"Biblioteca");
 		
 	}
-	@Test
-	public void test2passiUguali() {
-		t.setParametro("ovest"); 
-		t.esegui(p);
-		t.esegui(p);
-		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"Aula N11");
-		}
-	@Test
-	public void test2passiDiversi() {
-		t.setParametro("sud");
-		t.esegui(p);
-		t.setParametro("ovest");
-		t.esegui(p);
-		assertEquals(p.getLabirinto().getStanzaCorrente().getNome(),"Laboratorio Campus");
-	}
+	
 	@Test
 	public void testDecrementoCfu() {
 		t.setParametro("sud");

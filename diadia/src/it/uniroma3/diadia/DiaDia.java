@@ -38,7 +38,7 @@ public class DiaDia {
 	public DiaDia(IO console,Labirinto labirinto) {
 		this.partita = new Partita(labirinto);
 		this.io = console;
-	}
+	} 
 
 	public void gioca() {
 		String istruzione; 
@@ -71,9 +71,10 @@ public class DiaDia {
 
 
 	public static void main(String[] argc) throws FileNotFoundException, FormatoFileNonValidoException {
-		IO console = new IOConsole();
+		
 		Scanner scanner = new Scanner(System.in);
-		Labirinto labirinto=Labirinto.newBuilder("labirinto.txt").getLabirinto();
+		IO console = new IOConsole(scanner);
+		Labirinto labirinto=Labirinto.newBuilder("labirinto2.txt").getLabirinto();
 //			.addStanzaIniziale("Atrio")
 //			.addAttrezzo("osso", 1)
 //			.addStanzaVincente("Biblioteca")

@@ -19,7 +19,7 @@ public class PartitaTest {
 	
 	@Before 
 	public void setUp() throws FileNotFoundException, FormatoFileNonValidoException {
-		l=Labirinto.newBuilder("labirinto1.txt").getLabirinto();
+		l=Labirinto.newBuilder("labirinto2.txt").getLabirinto();
 //				.addStanzaIniziale("Atrio")
 //				.addAttrezzo("osso", 1)
 //				.addStanzaVincente("Biblioteca")
